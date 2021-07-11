@@ -1,0 +1,30 @@
+{
+  "name": "cachitos",
+  "version": "1.0.0",
+  "description": "juego de cachos (dudo)",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/matiomm/Cachitos.git"
+  },
+  "keywords": [
+    "socket.io",
+    "cachos",
+    "dados",
+    "dudo"
+  ],
+  "author": "Matias Moscoso",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/matiomm/Cachitos/issues"
+  },
+  "homepage": "https://github.com/matiomm/Cachitos#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "socket.io": "^1.7.4"
+  }
+}
