@@ -14,6 +14,8 @@ var server = app.listen(process.env.PORT || 3000, listen);
 function listen() {
     var host = server.address().address;
     var port = server.address().port;
+    console.log(server.address());
+    console.log(host);
     console.log('Example app listening at http://' + host + ':' + port);
 }
 
