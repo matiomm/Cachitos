@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Matiomm</title>
+</head>
+<body>
+<div id="todo" style="padding: 50px">
+    <div id="join">
+        <span id="join_error" style="color: red"></span>
+        <input placeholder='nick' id="nick">
+        <button onclick="joinGame()">
+            Join
+        </button>
+    </div>
+    <div id="messages">
+
+    </div>
+</div>
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.1.3/socket.io.js" integrity="sha512-PU5S6BA03fRv1Q5fpwXjg5nlRrgdoguZ74urFInkbABMCENyx5oP3hrDzYMMPh3qdLdknIvrGj3yqZ4JuU7Nag==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="https://d3js.org/d3.v7.min.js"></script>
+<script>
+    let socket = io('https://matiomm.cl:3000');
+
+
+    function joinGame(){
+        let nick = d3.select('#nick').property('value');
+        if (nick!=''){
+            console.log('emitiendo join game')
+            socket.emit('join game',nick);
+            d3.select('#join').style('display','none');
+        }
+
+    }
+
+    socket.on('nick taken', function (nick){
+        d3.select('#join_error').html('Ya ingreso a la partida alguien con el nick <b>'+nick+'</b>');
+    });
+
+    socket.on('joined', function (match){
+        console.log('wena compare');
+        console.log(match);
+        d3.select('#messages').html('<span>Bienvenido a la partida!</span>');
+    });
+
+    socket.on('probando',function (asd){
+        console.log(asd);
+    });
+
+</script>
+</body>
+</html>
